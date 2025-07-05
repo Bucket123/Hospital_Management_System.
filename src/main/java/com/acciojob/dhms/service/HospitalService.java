@@ -49,4 +49,21 @@ public class HospitalService {
         }
         return ans;
     }
+
+    public Hospital getMinPatientHospital(){
+        List<Hospital> hospitals = getAllHospitalList();
+        Hospital ans = null;
+        int min = Integer.MAX_VALUE;
+        for(int i=0; i<hospitals.size(); i++)
+        {
+            Hospital hospital = hospitals.get(i);
+            if(hospital.getPatients().size() < min)
+            {
+                min = hospital.getPatients().size();
+                ans = hospital;
+            }
+        }
+        return ans;
+    }
+
 }
